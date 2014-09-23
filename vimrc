@@ -33,5 +33,11 @@ filetype indent plugin on
 autocmd FileType html set shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType htmldjango set shiftwidth=2 tabstop=2 softtabstop=2
 
+" line/column highlight
+highlight CursorColumn ctermbg=8
+highlight CursorLine ctermbg=8 
+set cursorline
+set cursorcolumn 
+
 " pathogen
 execute pathogen#infect()
