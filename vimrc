@@ -1,3 +1,6 @@
+" pathogen
+""execute pathogen#infect()
+
 " tabs
 set tabstop=4
 set softtabstop=4
@@ -5,9 +8,17 @@ set shiftwidth=4
 set expandtab
 
 " line numbers
-set nu
+set number
+""autocmd FocusLost * :set number
+""autocmd InsertEnter * :set number
+""autocmd InsertLeave * :set relativenumber
+""autocmd CursorMoved * :set relativenumber
+
+" paste
+set paste
 
 " colours
+set t_Co=256
 set background=dark
 set backspace=2
 
@@ -30,14 +41,16 @@ syntax on
 filetype indent plugin on
 
 " filetypes
-autocmd FileType html set shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType htmldjango set shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " line/column highlight
-highlight CursorColumn ctermbg=8
-highlight CursorLine ctermbg=8 
 set cursorline
 set cursorcolumn 
+highlight CursorColumn ctermbg=8
+highlight CursorLine ctermbg=8 
 
-" pathogen
-execute pathogen#infect()
+" highlight > 80 chars "
+highlight OverLength ctermbg=red ctermfg=white guibg=red
+match OverLength /\%80v.\+/
