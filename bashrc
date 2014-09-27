@@ -29,7 +29,7 @@ done
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
-
+alias ll='ls -la'
 ## Per-host prompt colouring
 # http://zork.net/~st/jottings/Per-Host_Prompt_Colouring.html
 
