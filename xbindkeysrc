@@ -1,0 +1,8 @@
+"xvkbd -xsendevent -text "\[Next]""
+m:0x4 + c:116
+Control + Down 
+
+
+"xvkbd -xsendevent -text "\[Prior]""
+m:0x4 + c:111
+Control + Up 
