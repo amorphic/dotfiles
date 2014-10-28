@@ -2,7 +2,14 @@
 m:0x4 + c:116
 Control + Down 
 
-
 "xvkbd -xsendevent -text "\[Prior]""
 m:0x4 + c:111
 Control + Up 
+
+"xvkbd -xsendevent -text "\[End]""
+m:0x4 + c:114
+Control + Right
+
+"xvkbd -xsendevent -text "\[Home]""
+m:0x4 + c:113
+Control + Left
