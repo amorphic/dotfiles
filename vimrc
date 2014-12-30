@@ -32,21 +32,24 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
-" plugins
-syntax on
-filetype indent plugin on
-
-" filetypes
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
 " line/column highlight
 set cursorline
 set cursorcolumn 
 highlight CursorColumn ctermbg=8
 highlight CursorLine ctermbg=8 
 
-" highlight > 80 chars "
+" plugins
+syntax on
+filetype indent plugin on
+
+" correct filetypes
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" 2-space indent
+let twospacetypes = ['html', 'htmldjango', 'javascript']
+autocmd FileType * if index(twospacetypes, &ft) >= 0 | setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" 80 char limit
+let eightychartypes = ['python', 'javascript', 'ruby']
 highlight OverLength ctermbg=red ctermfg=white guibg=red
-match OverLength /\%80v.\+/
+autocmd FileType * if index(eightychartypes, &ft) >= 0 | match OverLength /\%80v.\+/
