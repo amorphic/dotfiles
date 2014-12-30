@@ -9,10 +9,6 @@ set expandtab
 
 " line numbers
 set number
-""autocmd FocusLost * :set number
-""autocmd InsertEnter * :set number
-""autocmd InsertLeave * :set relativenumber
-""autocmd CursorMoved * :set relativenumber
 
 " paste
 set paste
