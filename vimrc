@@ -38,6 +38,10 @@ set cursorcolumn
 highlight CursorColumn ctermbg=8
 highlight CursorLine ctermbg=8 
 
+" jump editor lines rather than wrapped lines
+nnoremap j gj
+nnoremap k gk
+
 " plugins
 syntax on
 filetype indent plugin on
