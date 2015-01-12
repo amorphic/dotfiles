@@ -9,6 +9,7 @@
 	editor = vim
 	excludesfile = ~/.gitignore
 [push]
+	default = matching 
 	default = simple
 [alias]
     hist = log --graph --pretty=format:\"%C(yellow)%h%C(reset)%C(auto)%d%C(reset) %s %C(white)%an, %ar%C(reset)\"

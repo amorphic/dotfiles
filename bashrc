@@ -88,3 +88,6 @@ if [ -n "$HISTORY_SETUP" ]; then
 	export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 	export HISTORY_SETUP=1
 fi
+
+## Use vim as default editor.
+export EDITOR=vim
