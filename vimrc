@@ -8,6 +8,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Yggdroot/indentLine'
+Plugin 'nvie/vim-flake8'
 call vundle#end() 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -70,3 +71,6 @@ autocmd FileType * if index(twospacetypes, &ft) >= 0 | setlocal shiftwidth=2 tab
 let eightychartypes = ['python', 'javascript', 'ruby']
 highlight OverLength ctermbg=red ctermfg=white guibg=red
 autocmd FileType * if index(eightychartypes, &ft) >= 0 | match OverLength /\%80v.\+/
+
+" Map F3 to flake8 check
+autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
