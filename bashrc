@@ -91,3 +91,8 @@ fi
 
 ## Use vim as default editor.
 export EDITOR=vim
+
+## Alias ack to ack-grep because ack-grep is annoyingly long.
+if [ -f "/usr/bin/ack-grep" ]; then
+    alias ack="ack-grep"
+fi
