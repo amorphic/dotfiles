@@ -96,3 +96,6 @@ export EDITOR=vim
 if [ -f "/usr/bin/ack-grep" ]; then
     alias ack="ack-grep"
 fi
+
+# Thermeon
+ alias auth_tunnel='AUTOSSH_POLL=60 autossh -A jas@devel.thermeon.com '
