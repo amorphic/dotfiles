@@ -18,3 +18,7 @@ vim +PluginInstall +qall
 
 # git
 ln -sf $PWD/gitconfig ~/.gitconfig
+
+# irssi
+mkdir ~/.irssi
+ln -sf $PWD/irssi ~/.irssi/config
