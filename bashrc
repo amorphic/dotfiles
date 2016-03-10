@@ -96,3 +96,6 @@ export EDITOR=vim
 if [ -f "/usr/bin/ack-grep" ]; then
     alias ack="ack-grep"
 fi
+
+# Add node modules locally-installed by npm to PATH
+PATH=$PATH:./node_modules/.bin
