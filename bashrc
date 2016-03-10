@@ -99,3 +99,15 @@ fi
 
 # Add node modules locally-installed by npm to PATH
 PATH=$PATH:./node_modules/.bin
+
+# Thermeon
+alias auth_tunnel='AUTOSSH_POLL=60 autossh -A jas@devel.thermeon.com '
+
+# Dev dirs
+mkdir -p $HOME/venv
+export VENV=$HOME/venv
+mkdir -p $HOME/dev
+export DEV=$HOME/dev
+mkdir -p $HOME/dev/go
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$GOPATH/bin
