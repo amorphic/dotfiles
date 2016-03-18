@@ -67,7 +67,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.hbs set filetype=handlebars
 
 " 2-space indent
-let twospacetypes = ['html', 'htmldjango', 'javascript', 'handlebars', 'ruby']
+let twospacetypes = ['html', 'htmldjango', 'javascript', 'handlebars', 'ruby', 'json']
 autocmd FileType * if index(twospacetypes, &ft) >= 0 | setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " 80 char limit
@@ -80,3 +80,6 @@ autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
 
 " Save with sudo
 cmap w!! w !sudo tee % >/dev/null
+
+" Disable json quote concealing
+set conceallevel=0
