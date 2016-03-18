@@ -11,6 +11,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'nvie/vim-flake8'
 Plugin 'nono/vim-handlebars'
 Plugin 'jaxbot/semantic-highlight.vim'
+Plugin 'posva/vim-vue'
 call vundle#end() 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -67,7 +68,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.hbs set filetype=handlebars
 
 " 2-space indent
-let twospacetypes = ['html', 'htmldjango', 'javascript', 'handlebars', 'ruby', 'json']
+let twospacetypes = ['html', 'htmldjango', 'javascript', 'handlebars', 'ruby', 'json', 'vue']
 autocmd FileType * if index(twospacetypes, &ft) >= 0 | setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " 80 char limit
