@@ -7,5 +7,4 @@ setw -g monitor-activity on
 set -g visual-activity on
 
 # Mouse
-setw -g mode-mouse on
-set -g mouse-select-pane on
+set -g mouse on
