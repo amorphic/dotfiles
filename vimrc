@@ -12,6 +12,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'nono/vim-handlebars'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'posva/vim-vue'
+Plugin 'hashivim/vim-terraform.git'
 call vundle#end() 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
