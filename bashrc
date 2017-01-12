@@ -97,6 +97,11 @@ if [ -f "/usr/bin/ack-grep" ]; then
     alias ack="ack-grep"
 fi
 
+## Alias for icrew tmux dev environment if available.
+if [ -f "/dev/icrew_frontend/icrew_tmux.sh" ]; then
+	alias ict="/dev/icrew_frontend/icrew_tmux.sh"
+fi
+
 # Add node modules locally-installed by npm to PATH
 PATH=$PATH:./node_modules/.bin
 
