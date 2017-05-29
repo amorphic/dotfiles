@@ -85,3 +85,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Disable json quote concealing
 set conceallevel=0
+
+" Stop vim from renaming old file and writing new as it breaks webpack watcher
+set backupcopy=yes
