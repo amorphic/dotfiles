@@ -19,12 +19,6 @@ call vundle#end()
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
-" tabs
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-
 " line numbers
 set number
 
@@ -88,3 +82,9 @@ set conceallevel=0
 
 " Stop vim from renaming old file and writing new as it breaks webpack watcher
 set backupcopy=yes
+
+" tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
