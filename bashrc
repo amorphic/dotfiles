@@ -105,12 +105,31 @@ fi
 # Add node modules locally-installed by npm to PATH
 PATH=$PATH:./node_modules/.bin
 
-# Thermeon
-alias auth_tunnel='AUTOSSH_POLL=60 autossh -A jas@devel.thermeon.com '
-
 # Dev dirs
 mkdir -p $HOME/venv
 export VENV=$HOME/venv
 mkdir -p $HOME/dev
 export DEV=$HOME/dev
 export PATH=$PATH:$GOPATH/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# PyEnv
+export PATH="${HOME}/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
+
+# HB Apple TV
+alias hbtv="java -jar ~/Apps/airplay.jar -h 192.168.8.120 -d"
