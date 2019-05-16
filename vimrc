@@ -63,8 +63,8 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.hbs set filetype=handlebars
 
 " 2-space indent
-let twospacetypes = ['html', 'htmldjango', 'javascript', 'handlebars', 'ruby', 'json', 'vue', 'yaml']
-autocmd FileType * if index(twospacetypes, &ft) >= 0 | setlocal shiftwidth=2 tabstop=2 softtabstop=2
+let twospacetypes = ['html', 'htmldjango', 'javascript', 'handlebars', 'ruby', 'json', 'vue', 'yaml', 'terraform']
+autocmd FileType * if index(twospacetypes, &ft) >= 0 | setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 " 80 char limit
 let eightychartypes = ['python', 'javascript', 'ruby']
