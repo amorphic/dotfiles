@@ -13,6 +13,7 @@ Plugin 'nono/vim-handlebars'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'posva/vim-vue'
 Plugin 'hashivim/vim-terraform.git'
+Plugin 'scrooloose/nerdtree'
 call vundle#end() 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -88,3 +89,13 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+
+" Open NERDTree automatically if no file specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Close NERDTree automatically if it is the last tab open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" NERDTree toggle
+map <C-n> :NERDTreeToggle<CR>
