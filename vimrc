@@ -14,6 +14,7 @@ Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'posva/vim-vue'
 Plugin 'hashivim/vim-terraform.git'
 Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end() 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -99,3 +100,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " NERDTree toggle
 map <C-n> :NERDTreeToggle<CR>
+
+" IndentLines toggle
+map <F5> :IndentLinesToggle<CR>
+
+" Increased update time for vim-gitgutter
+set updatetime=100
