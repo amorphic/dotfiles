@@ -132,4 +132,4 @@ eval "$(pyenv virtualenv-init -)"
 [ -f /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
 
 # HB Apple TV
-alias hbtv="java -jar ~/Apps/airplay.jar -h 192.168.8.120 -d"
+alias hbtv="java -jar ~/Apps/airplay.jar -h 192.168.1.113 -d"
