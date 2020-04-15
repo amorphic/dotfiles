@@ -133,3 +133,6 @@ eval "$(pyenv virtualenv-init -)"
 
 # HB Apple TV
 alias hbtv="java -jar ~/Apps/airplay.jar -h 192.168.1.113 -d"
+
+# Github Actions Tools Cache
+export AGENT_TOOLSDIRECTORY=$HOME/.cache/gh_actions_tools
