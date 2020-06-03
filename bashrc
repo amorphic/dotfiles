@@ -135,4 +135,4 @@ eval "$(pyenv virtualenv-init -)"
 alias hbtv="java -jar ~/Apps/airplay.jar -h 192.168.1.113 -d"
 
 # Github Actions Tools Cache
-export AGENT_TOOLSDIRECTORY=$HOME/.cache/gh_actions_tools
+export AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
