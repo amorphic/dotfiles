@@ -136,3 +136,6 @@ alias hbtv="java -jar ~/Apps/airplay.jar -h 192.168.1.113 -d"
 
 # Github Actions Tools Cache
 export AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
+
+# SparkCC SOCKS5 Proxy  
+alias sccp="ssh -D 1337 -q -C -N -f sparkcc@space.sparkcc.org -p 62250"
