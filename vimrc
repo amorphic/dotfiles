@@ -15,6 +15,8 @@ Plugin 'posva/vim-vue'
 Plugin 'hashivim/vim-terraform.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'davidhalter/jedi-vim'
+
 call vundle#end() 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
