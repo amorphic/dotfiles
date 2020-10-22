@@ -19,3 +19,4 @@ vim +PluginInstall +qall
 # git
 ln -sf $PWD/gitconfig ~/.gitconfig
 ln -sf $PWD/gitignore ~/.gitignore
+ln -sf $PWD/gitattributes ~/.gitattributes

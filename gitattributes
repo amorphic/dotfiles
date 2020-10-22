@@ -1,0 +1,10 @@
+* whitespace=!indent,trail,space
+*.[ch] whitespace=indent,trail,space diff=cpp
+*.sh whitespace=indent,trail,space eol=lf
+*.perl eol=lf diff=perl
+*.pl eof=lf diff=perl
+*.pm eol=lf diff=perl
+*.py eol=lf diff=python
+*.bat eol=crlf
+*.rb diff=ruby
+*.rake diff=ruby
