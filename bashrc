@@ -131,9 +131,6 @@ eval "$(pyenv init --path)"
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [ -f /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
 
-# HB Apple TV
-alias hbtv="java -jar ~/Apps/airplay.jar -h 192.168.1.113 -d"
-
 # Github Actions Tools Cache
 export AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
 
