@@ -118,8 +118,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # PyEnv
 export PATH="${HOME}/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv virtualenv-init --path)"
+eval "$(pyenv init --path)"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
