@@ -1,4 +1,4 @@
 .python-version
 
-.swp
-.swo
+*.swp
+*.swo
