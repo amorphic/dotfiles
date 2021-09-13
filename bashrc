@@ -118,7 +118,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # PyEnv
 export PATH="${HOME}/.pyenv/bin:$PATH"
-eval "$(pyenv virtualenv-init --path)"
+eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init -)"
 eval "$(pyenv init --path)"
 
 # tabtab source for serverless package
@@ -136,3 +137,6 @@ export AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
 
 # SparkCC SOCKS5 Proxy  
 alias sccp="ssh -D 1337 -q -C -N -f sparkcc@space.sparkcc.org -p 62250"
+
+# Created by `pipx` on 2021-08-26 07:58:45
+export PATH="$PATH:/home/james/.local/bin"
