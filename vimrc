@@ -100,6 +100,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Close NERDTree automatically if it is the last tab open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
+
 " NERDTree toggle
 map <C-n> :NERDTreeToggle<CR>
 
