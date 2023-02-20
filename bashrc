@@ -116,12 +116,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# PyEnv
-export PATH="${HOME}/.pyenv/bin:$PATH"
-eval "$(pyenv virtualenv-init -)"
-eval "$(pyenv init -)"
-eval "$(pyenv init --path)"
-
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [ -f /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
@@ -140,3 +134,9 @@ alias sccp="ssh -D 1337 -q -C -N -f sparkcc@space.sparkcc.org -p 62250"
 
 # Created by `pipx` on 2021-08-26 07:58:45
 export PATH="$PATH:/home/james/.local/bin"
+
+# PyEnv
+export PATH="${HOME}/.pyenv/bin:$PATH"
+eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
