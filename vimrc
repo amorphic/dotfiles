@@ -26,9 +26,6 @@ call vundle#end()
 " line numbers
 set number
 
-" paste
-set paste
-
 " colours
 set t_Co=256
 set background=dark
