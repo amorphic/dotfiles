@@ -136,7 +136,6 @@ alias sccp="ssh -D 1337 -q -C -N -f sparkcc@space.sparkcc.org -p 62250"
 export PATH="$PATH:/home/james/.local/bin"
 
 # PyEnv
-export PATH="${HOME}/.pyenv/bin:$PATH"
-eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv init --path)"
