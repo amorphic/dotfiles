@@ -132,8 +132,11 @@ export AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
 # SparkCC SOCKS5 Proxy  
 alias sccp="ssh -D 1337 -q -C -N -f sparkcc@space.sparkcc.org -p 62250"
 
+# tfenv path
+export PATH="$PATH:$HOME/.tfenv/bin"
+
 # Created by `pipx` on 2021-08-26 07:58:45
-export PATH="$PATH:/home/james/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
