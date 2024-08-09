@@ -16,6 +16,7 @@ Plugin 'hashivim/vim-terraform.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'github/copilot.vim'
 
 call vundle#end() 
 " :PluginList       - lists configured plugins
