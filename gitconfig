@@ -17,3 +17,5 @@
     st = status
     cp = cherry-pick
     co = checkout
+[init]
+	defaultBranch = main
