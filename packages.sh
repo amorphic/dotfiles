@@ -1,8 +1,10 @@
 #!/bin/sh
 
-apt-get update
+# Update package list
+sudo apt-get update
 
-apt-get install -y \
+# Install basic packages
+sudo apt-get install -y \
 	vim \
 	git \
 	tmux \
@@ -11,3 +13,17 @@ apt-get install -y \
 	virtualenv \
 	icdiff \
 	ack \
+    pipx
+
+# Install pyenv
+curl https://pyenv.run | bash
+
+# Install python apps 
+pipx ensurepath
+pipx install black
+pipx install flake8
+pipx install isort
+pipx install mypy
+pipx install poetry
+pipx install pre-commit
+pipx install tox
