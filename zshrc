@@ -1,0 +1,83 @@
+# .zshrc
+
+# Source common configuration shared with bash
+if [ -f ~/.commonrc ]; then
+    . ~/.commonrc
+fi
+
+# Zsh-specific configuration below
+
+## Per-host prompt colouring
+# Equivalent to the bash prompt setup
+
+# We get the first 7 digits of the md5sum/md5; if we got 8 digits, the
+# hosthash might be negative on 32-bit machines, and that would mess
+# things up.
+HOSTHASH=$(hostname | md5sum 2>/dev/null || hostname | md5)
+HOSTHASH=${HOSTHASH:0:7}
+
+# Map into the range of available colours
+if [ $(tput colors) -ge 256 ]; then
+    # All the colours with brightness > 25% in the default xterm palette
+    BRIGHT_COLORS=(2 3 4 5 6 7 8 9 10 11 12 13 14 15 22 23 24 25 26 27
+    28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
+    50 51 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77
+    78 79 80 81 82 83 84 85 86 87 94 95 96 97 98 99 100 101 102 103 104
+    105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121
+    122 123 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
+    145 146 147 148 149 150 151 152 153 154 155 156 157 178 179 180 181
+    182 183 184 185 186 187 188 189 190 191 192 193 194 195 198 199 200
+    201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217
+    218 219 220 221 222 223 224 225 226 227 228 229 230 231 238 239 240
+    241 242 243 244 245 246 247 248 249 250 251 252 253 254 255)
+elif [ $(tput colors) -ge 16 ]; then
+    BRIGHT_COLORS=(2 3 4 5 6 7 8 9 10 11 12 13 14 15)
+else
+    BRIGHT_COLORS=(2 3 4 5 6 7)
+fi
+
+COLOR=${BRIGHT_COLORS[$(( 0x$HOSTHASH % ${#BRIGHT_COLORS[@]} ))]}
+
+# Zsh prompt with color support
+# Note: Zsh uses %{...%} for non-printing characters, not \[...\]
+autoload -U colors && colors
+C="%{$(tput setaf $COLOR)%}" # color
+B="%{$(tput bold)%}" # bold
+N="%{$(tput sgr0)%}" # normal
+PROMPT="$C$B[$N$C%n@%m$B\$TMP_DELIM$N$C\$TMP_PWD_VALUE$B]%#$N "
+unset HOSTHASH BRIGHT_COLORS COLOR C B N  # cleanup
+
+## Enable zsh completion system
+autoload -Uz compinit
+compinit
+
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Use menu selection for completions
+zstyle ':completion:*' menu select
+
+## History configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+# Share history across all open terminals
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+
+# Ignore duplicates in history
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+
+# Don't store history commands that start with a space
+setopt HIST_IGNORE_SPACE
+
+# Remove superfluous blanks from history
+setopt HIST_REDUCE_BLANKS
+
+# NVM zsh completion (if available)
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

@@ -1,42 +1,19 @@
 # .bashrc
 
-# User specific aliases and functions
+# Source common configuration shared with zsh
+if [ -f ~/.commonrc ]; then
+    . ~/.commonrc
+fi
 
-## Pick the most capable terminal variant we can find.
-# http://zork.net/~st/jottings/Automatic_$TERM_Selection.html
-case "$TERM" in
-    xterm*)
-	TERMLIST="
-	    xterm-256color
-	    xterm-16color
-	    xterm-color
-	    xterm
-	    " ;;
-    screen*)
-	TERMLIST="
-	    screen-256color
-	    screen-16color
-	    screen
-	    " ;;
-    *)
-	TERMLIST="$TERM" ;;
-esac
-for term in $TERMLIST; do
-    infocmp "$term" >/dev/null 2>&1 && export TERM=$term && break
-done
+# Bash-specific configuration below
 
-## Enable color support of ls
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias ll='ls -la'
 ## Per-host prompt colouring
 # http://zork.net/~st/jottings/Per-Host_Prompt_Colouring.html
 
 # We get the first 7 digits of the md5sum; if we got 8 digits, the
 # hosthash might be negative on 32-bit machines, and that would mess
 # things up.
-HOSTHASH=$(hostname | md5sum)
+HOSTHASH=$(hostname | md5sum 2>/dev/null || hostname | md5)
 HOSTHASH=${HOSTHASH:0:7}
 
 # Map into the range of available colours
@@ -69,18 +46,18 @@ N="\[$(tput sgr0)\]" # normal
 PS1="$C$B[$N$C\\u@\\h$B\$TMP_DELIM$N$C\$TMP_PWD_VALUE$B]\\\$$N "
 unset HOSTHASH BRIGHT_COLORS COLOR C B N	  # cleanup
 
-## Alias vim to vi, if we don't have vim available.
-if [ "$(which vim 2>/dev/null)" == "" ] && [ "$(which vi 2>/dev/null)" != "" ]; then
-	alias vim=$(which vi)
-fi
-
 ## Load tab-completion settings, if any.
-if [ -e /etc/bash_completion ]; then
+if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
+# Load bash completion from homebrew on macOS
+if [[ "$OSTYPE" == "darwin"* ]] && [ -f /opt/homebrew/etc/bash_completion ]; then
+    . /opt/homebrew/etc/bash_completion
+fi
+
 ## Share history across all open terminals.
-if [ -n "$HISTORY_SETUP" ]; then
+if [ -z "$HISTORY_SETUP" ]; then
 	shopt -s histappend
 	export HISTCONTROL=ignoredups:erasedups
 	export HISTSIZE=100000
@@ -89,59 +66,5 @@ if [ -n "$HISTORY_SETUP" ]; then
 	export HISTORY_SETUP=1
 fi
 
-## Use vim as default editor.
-export EDITOR=vim
-
-## Alias ack to ack-grep because ack-grep is annoyingly long.
-if [ -f "/usr/bin/ack-grep" ]; then
-    alias ack="ack-grep"
-fi
-
-## Alias for icrew tmux dev environment if available.
-if [ -f "${HOME}/dev/icrew_frontend/icrew_tmux.sh" ]; then
-	alias ict="${HOME}/dev/icrew_frontend/icrew_tmux.sh"
-fi
-
-# Add node modules locally-installed by npm to PATH
-PATH=$PATH:./node_modules/.bin
-
-# Dev dirs
-mkdir -p $HOME/venv
-export VENV=$HOME/venv
-mkdir -p $HOME/dev
-export DEV=$HOME/dev
-export PATH=$PATH:$GOPATH/bin
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /home/james/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
-
-# Github Actions Tools Cache
-export AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
-
-# SparkCC SOCKS5 Proxy  
-alias sccp="ssh -D 1337 -q -C -N -f sparkcc@space.sparkcc.org -p 62250"
-
-# tfenv path
-export PATH="$PATH:$HOME/.tfenv/bin"
-
-# Created by `pipx` on 2021-08-26 07:58:45
-export PATH="$PATH:$HOME/.local/bin"
-
-# PyEnv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Python3 is Python
-alias python='python3'
+# NVM bash completion (bash-specific)
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

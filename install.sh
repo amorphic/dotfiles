@@ -2,8 +2,14 @@
 
 PWD=`pwd`
 
+# common shell configuration
+ln -sf $PWD/commonrc ~/.commonrc
+
 # bash
 ln -sf $PWD/bashrc ~/.bashrc
+
+# zsh
+ln -sf $PWD/zshrc ~/.zshrc
 
 # tmux
 ln -sf $PWD/tmux ~/.tmux.conf 
