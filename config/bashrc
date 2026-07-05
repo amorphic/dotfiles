@@ -43,7 +43,7 @@ COLOR=${BRIGHT_COLORS[$(( 0x$HOSTHASH % ${#BRIGHT_COLORS[@]} ))]}
 C="\[$(tput setaf $COLOR)\]" # color
 B="\[$(tput bold)\]" # bold
 N="\[$(tput sgr0)\]" # normal
-PS1="$C$B[$N$C\\u@\\h$B\$TMP_DELIM$N$C\$TMP_PWD_VALUE$B]\\\$$N "
+PS1="$C$B[$N$C\\u@\\h$B $N$C\\w$B]\\\$$N "
 unset HOSTHASH BRIGHT_COLORS COLOR C B N	  # cleanup
 
 ## Load tab-completion settings, if any.

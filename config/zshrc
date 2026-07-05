@@ -44,7 +44,7 @@ autoload -U colors && colors
 C="%{$(tput setaf $COLOR)%}" # color
 B="%{$(tput bold)%}" # bold
 N="%{$(tput sgr0)%}" # normal
-PROMPT="$C$B[$N$C%n@%m$B\$TMP_DELIM$N$C\$TMP_PWD_VALUE$B]%#$N "
+PROMPT="$C${B}[$N$C%n@%m$B $N$C%~$B]%#$N "
 unset HOSTHASH BRIGHT_COLORS COLOR C B N  # cleanup
 
 ## Enable zsh completion system
@@ -81,3 +81,5 @@ setopt HIST_REDUCE_BLANKS
 
 # NVM zsh completion (if available)
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
